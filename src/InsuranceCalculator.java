@@ -1,31 +1,22 @@
 public class InsuranceCalculator {
 
+    private final InsuranceStrategyVeryHigh insuranceStrategyVeryHigh = new InsuranceStrategyVeryHigh();
+    private final InsuranceStrategyHigh insuranceStrategyHigh = new InsuranceStrategyHigh();
+    private final InsuranceStrategyMedium insuranceStrategyMedium = new InsuranceStrategyMedium();
+    private final InsuranceStrategyLow insuranceStrategyLow = new InsuranceStrategyLow();
+
     public double calculateInsurance(double income) {
         if (income <= 10000) {
-            return lowInsuranceCalc(income);
+            return insuranceStrategyLow.lowInsuranceCalc(income);
         } else if (income <= 30000) {
-            return medInsuranceCalc(income, 10000, 0.2, 35600);
+            return insuranceStrategyMedium.medInsuranceCalc(income);
         } else if (income <= 60000) {
-            return highInsuranceCalc(income, 30000, 0.1, 76500);
+            return insuranceStrategyHigh.highInsuranceCalc(income);
         } else {
-            return veryHighInsuranceCalc(income, 60000, 0.02, 105600);
+            return insuranceStrategyVeryHigh.veryHighInsuranceCalc(income);
         }
     }
 
-    private double veryHighInsuranceCalc(double income, int i, double v, int i2) {
-        return (income - i) * v + i2;
-    }
 
-    private double highInsuranceCalc(double income, int i, double v, int i2) {
-        return (income - i) * v + i2;
-    }
-
-    private double medInsuranceCalc(double income, int i, double v, int i2) {
-        return (income - i) * v + i2;
-    }
-
-    private double lowInsuranceCalc(double income) {
-        return income*0.365;
-    }
 
 }
