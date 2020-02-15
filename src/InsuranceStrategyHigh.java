@@ -13,7 +13,7 @@ public class InsuranceStrategyHigh extends InsuranceStrategy {
     }
 
     @Override
-    public int getAdjusment() {
+    public int getAdjustment() {
         return 30000;
     }
 }

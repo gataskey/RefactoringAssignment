@@ -1,25 +1,21 @@
-public class InsuranceStrategyVeryHigh {
+public class InsuranceStrategyVeryHigh extends InsuranceStrategy {
 
     public InsuranceStrategyVeryHigh() {
 
     }
 
-    double veryHighInsuranceCalc(double income) {
-
-        return (income - getAdjusment()) * getWeight() + getConstant();
-    }
-
+    @Override
     public int getConstant() {
 
         return 105600;
     }
-
+    @Override
     public double getWeight() {
 
         return 0.02;
     }
-
-    public int getAdjusment() {
+    @Override
+    public int getAdjustment() {
 
         return 60000;
     }
